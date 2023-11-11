@@ -1,27 +1,25 @@
 // Para mostrar la imagen con Zoom al lado
 
-document.addEventListener("DOMContentLoaded", function () {
-    var imagenesMiniatura = document.querySelectorAll('.miniatura');
+var imagenesMiniatura = document.querySelectorAll('.miniatura');
 
-    imagenesMiniatura.forEach(function (imagen) {
-        imagen.addEventListener('mouseover', function () {
-            var imagenGrande = document.createElement('img');
+imagenesMiniatura.forEach(function (imagen) {
+    imagen.addEventListener('mouseover', function () {
+        var imagenGrande = document.createElement('img');
 
-            imagenGrande.src = imagen.src;
-            imagenGrande.alt = imagen.alt;
-            imagenGrande.classList.add('imagenGrande');
+        imagenGrande.src = imagen.src;
+        imagenGrande.alt = imagen.alt;
+        imagenGrande.classList.add('imagenGrande');
 
-            var rect = imagen.getBoundingClientRect();
+        var rect = imagen.getBoundingClientRect();
 
-            imagenGrande.style.position = 'absolute';
-            imagenGrande.style.top = rect.top - 25 + 'px';
-            imagenGrande.style.left = rect.right + 10 + 'px';
-            document.body.appendChild(imagenGrande);
-        });
+        imagenGrande.style.position = 'absolute';
+        imagenGrande.style.top = rect.top - 25 + 'px';
+        imagenGrande.style.left = rect.right + 10 + 'px';
+        document.body.appendChild(imagenGrande);
+    });
 
-        imagen.addEventListener('mouseout', function () {
-            document.body.removeChild(document.querySelector('.imagenGrande'));
-        });
+    imagen.addEventListener('mouseout', function () {
+        document.body.removeChild(document.querySelector('.imagenGrande'));
     });
 });
 
